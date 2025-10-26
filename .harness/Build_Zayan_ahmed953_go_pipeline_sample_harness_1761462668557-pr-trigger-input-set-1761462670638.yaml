@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_Zayan_ahmed953_go_pipeline_sample_harness_1761462668557-pr-trigger-input-set
+  identifier: Build_Zayan_ahmed953_go_pipeline_sample_harness_1761462668557prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: ProjectX
+  pipeline:
+    identifier: Build_Zayan_ahmed953_go_pipeline_sample_harness_1761462668557
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
