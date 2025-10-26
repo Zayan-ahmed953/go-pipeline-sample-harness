@@ -14,11 +14,17 @@ pipeline:
             steps:
               - step:
                   type: Run
-                  name: Echo Welcome Message
+                  name: Run Unit tests
                   identifier: Echo_Welcome_Message
                   spec:
+                    connectorRef: AWSConnector
+                    image: harness-ecr
                     shell: Sh
-                    command: echo "Welcome to Harness CI"
+                    command: |-
+                      set -e
+                      go get gotest.tools/gotestsum
+                      gotestsum --format=standard-verbose --junitfile unit-tests.xml
+                      exit 0
           platform:
             os: Linux
             arch: Amd64
